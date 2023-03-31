@@ -20,10 +20,10 @@ const Hero21 = ({cardDeteals}) => {
 
                 >
                 <NavLink to='/women'>
-                  {cardDeteals.map((el,i)=>(
+                  {cardDeteals.map((el)=>(
                 
                     <SwiperSlide>
-                    key = {i}
+                   
                     <img src={el.img} alt={el.deteals}  style={{
                         height : '300px'
                     }}/>
