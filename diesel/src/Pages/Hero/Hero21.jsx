@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Text} from '@chakra-ui/react';
-import {  NavLink } from 'react-router-dom';
+import {  Link, NavLink } from 'react-router-dom';
 
 const Hero21 = ({cardDeteals}) => {
     return (
@@ -19,7 +19,7 @@ const Hero21 = ({cardDeteals}) => {
                     spaceBetween={30}
 
                 >
-                <NavLink to='/women'>
+                <Link to='/women'>
                   {cardDeteals.map((el)=>(
                 
                     <SwiperSlide>
@@ -31,9 +31,10 @@ const Hero21 = ({cardDeteals}) => {
                     <Text color='green.600'>₹ {el.price}   {el.discount} discount</Text>
                     <Text textDecoration='line-through'>₹ {el.originalprice}</Text>
                     <Text textAlign='right' color='red'>Only Few Left</Text>
+                    <Link to='/men'>See More</Link>
                     </SwiperSlide>
                   ))}
-                  </NavLink>
+                  </Link>
                 </Swiper>
             </div>
         </div>

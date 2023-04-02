@@ -2,6 +2,7 @@ import React from 'react'
 import { Flex , Box, Heading ,Text} from '@chakra-ui/react'
 //import Carousel from 'react-bootstrap/Carousel';
 import Hero21 from './Hero21';
+import { Link } from 'react-router-dom';
 let cardDeteals = [
     {img:'https://diesel.gumlet.io/product/410345327008/300/410345327008_1_7301.webp?compress=true&q=70' , deteals : 'Women Dresses & Fashion' ,price : '1360', originalprice:'2000' ,discount :'35%',to:'/women'},
     {img:'https://diesel.gumlet.io/product/410372700007/300/410372700009_1_7922.webp?compress=true&q=70' , deteals : 'Men Dresses & Fashion' ,price : '1360', originalprice:'2000' ,discount :'35%'},
@@ -49,11 +50,16 @@ const Hero2 = () => {
         </Heading>
         <Flex><Heading as='h4' size='md'>2019 D-STRUKT</Heading></Flex>
         <Flex><Text>Always cool, always in style, the D-STRUKT is an essential denim silhouette defined by a slim leg, mid-rise waist and classic fit.</Text></Flex>
-       <Flex> <button  style={{
+       <Flex> 
+      <Link to='/cart'>
+      <button  style={{
         backgroundColor : 'black',
         color:'white',
         padding : '11px',
-       }}  size='lg'>Buy Now</button></Flex>
+       }}  size='lg'>
+       Buy Now</button>
+      </Link>
+       </Flex>
       </div>
       
     <Box >

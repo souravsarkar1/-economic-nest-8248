@@ -1538,6 +1538,27 @@
       "phonenumber": "",
       "pin": 741404,
       "id": 4
+    },
+    {
+      "fullAddress": "Barajiakur santipur nadia",
+      "name": "Sourav Sarkar",
+      "phonenumber": "",
+      "pin": 741402,
+      "id": 5
+    },
+    {
+      "fullAddress": "Barajiakur santipur nadia",
+      "name": "Sourav Sarkar",
+      "phonenumber": 6294128805,
+      "pin": 741404,
+      "id": 6
+    },
+    {
+      "fullAddress": "Barajiakur santipur nadia",
+      "name": "Sourav Sarkar",
+      "phonenumber": 6294128805,
+      "pin": 741404,
+      "id": 7
     }
   ]
 }

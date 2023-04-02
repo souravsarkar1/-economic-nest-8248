@@ -11,7 +11,7 @@ import {
   MDBTypography,
 } from "mdb-react-ui-kit";
 import { Button } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Authcontext } from "../Authcontext/Authcontextprovider";
 
 
@@ -19,6 +19,7 @@ export default function BuyNow() {
     const buyNowData = JSON.parse(localStorage.getItem('DieselBuyNow')) || [];
    const data = buyNowData[buyNowData.length-1]
    const [quantity , setQunatity] = useState(1);
+   const navigate = useNavigate();
    const {addressFlag,setAddressFlag} = useContext(Authcontext);
    const [payment, setPayment] = useState({
     cardNumber: '',
@@ -27,7 +28,7 @@ export default function BuyNow() {
     pin: ''
 })
 //const {addressFlag , setAddressFlag} = useContext(Authcontext);
-console.log(addressFlag);
+//console.log(addressFlag);
 const handleChange = (e) => {
     const { name, value, type } = e.target;
     //const val = type === "number" ? Number(value) : value;
@@ -36,22 +37,23 @@ const handleChange = (e) => {
     setPayment({ ...payment, [name]: val })
 }
 const { cardNumber, name, expire, pin } = payment;
-
+console.log(addressFlag);
 const handleSubmit = (e) => {
-  if(!addressFlag){
-   alert('Set Your Address First');
-   return;
-  }
   e.preventDefault();
-  setAddressFlag(false);
-  console.log('Ratna');
-  setPayment({
-      cardNumber: '',
-      name: '',
-      expire: '',
-      pin: ''
-  });
-  alert('Your Order is Successfull')
+    if(!addressFlag) {
+      alert('fixed address');
+      navigate('/address'); // useNavigate to navigate programmatically
+    } else {
+      setAddressFlag(false);
+      console.log('Ratna');
+      setPayment({
+        cardNumber: '',
+        name: '',
+        expire: '',
+        pin: ''
+      });
+      alert('Your Order is Successfull');
+    }
 }
   return (
     <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>

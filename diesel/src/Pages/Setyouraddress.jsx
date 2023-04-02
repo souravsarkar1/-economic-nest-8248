@@ -28,6 +28,7 @@ import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs';
 import { useContext, useState } from 'react';
 import axios from 'axios';
 import { Authcontext } from '../Authcontext/Authcontextprovider';
+import { Navigate } from 'react-router-dom';
 
 export default function Setyouraddress() {
     const dieselAddress = JSON.parse(localStorage.getItem('dieselAddress')) ||[];
@@ -36,7 +37,8 @@ export default function Setyouraddress() {
         name: '',
         phonenumber: '',
         pin: ''
-    })
+    });
+    
     const {addressFlag , setAddressFlag} = useContext(Authcontext);
     console.log(addressFlag);
     const handleChange = (e) => {
@@ -70,11 +72,14 @@ export default function Setyouraddress() {
             pin: ''
         });
     }
+    if(addressFlag){
+        return<Navigate to='/buynow'/>
+    }
     return (
         <Container bg="#9DC4FB" maxW="full" mt={0} centerContent overflow="hidden">
             <Flex>
                 <Box
-                    bg="#02054B"
+                    bg="red"
                     color="white"
                     borderRadius="lg"
                     m={{ sm: 4, md: 16, lg: 10 }}
@@ -84,8 +89,8 @@ export default function Setyouraddress() {
                             <WrapItem>
                                 <Box>
                                     <Heading>Address</Heading>
-                                    <Text mt={{ sm: 3, md: 3, lg: 5 }} color="gray.500">
-                                        Fill up the form below to contact
+                                    <Text mt={{ sm: 3, md: 3, lg: 5 }} color="white">
+                                        Fill up the form below to deliver your product safely to you
                                     </Text>
                                     <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
                                         <VStack pl={0} spacing={3} alignItems="flex-start">

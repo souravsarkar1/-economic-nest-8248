@@ -61,20 +61,14 @@ const Navbar2 = () => {
               to3='/kidnewcollection'
             />
           </NavLink>
-          <NavLink to='/ss23'>
+          <NavLink to='/men'>
             <Dropdoennavcomponent
               mainheading={`SS'23`}
-              link1='link 1'
-              link2='link 2'
-              link3='link 3'
             />
           </NavLink>
-          <NavLink to='/lastchange'>
+          <NavLink to='/men'>
             <Dropdoennavcomponent
               mainheading='Last Change'
-              link1='link 1'
-              link2='link 2'
-              link3='link 3'
             />
           </NavLink>
         </Flex>
