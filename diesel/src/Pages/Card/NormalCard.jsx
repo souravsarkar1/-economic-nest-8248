@@ -8,11 +8,35 @@ import {
     Image,
     Button,
   } from '@chakra-ui/react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
   
   
   
   export default function NormalCard({id,color,img,original_price,discount,seeling_price,title,brand,link}) {
+    const cartData = JSON.parse(localStorage.getItem("DieselCart")) || [];
+    const buyNowData = JSON.parse(localStorage.getItem('DieselBuyNow')) || [];
+    const AddToCart =()=>{
+      axios.get(` http://localhost:3004/${link}/${id}`).then((res)=>{
+        console.log(res.data);
+
+        for(let i =0;i<cartData.length;i++){
+          if(id===cartData[i].id){
+            alert('Product is Already in Cart');
+            return;
+          }
+        }
+        cartData.push(res.data);
+        localStorage.setItem('DieselCart' , JSON.stringify(cartData))
+      })
+      
+    }
+    const handlBuyNow =()=>{
+      axios.get(`http://localhost:3004/${link}/${id}`).then((res)=>{
+        buyNowData.push(res.data);
+        localStorage.setItem('DieselBuyNow' , JSON.stringify(buyNowData));
+      })
+    }
     return (
       <Center py={12}>
         <Box
@@ -79,8 +103,8 @@ import { Link } from 'react-router-dom';
             </Stack>
           </Stack>
           <Button><Link to={`/${link}/${id}`}>See More</Link></Button>
-          <Button>Buy Now</Button>
-          <Button>Add to Cart</Button>
+          <Link to='/buynow'><Button onClick={handlBuyNow}>Buy Now</Button></Link>
+          <Button onClick={AddToCart}>Add to Cart</Button>
         </Box>
       </Center>
     );

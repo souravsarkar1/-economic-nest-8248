@@ -14,6 +14,7 @@ import {
   from 'mdb-react-ui-kit';
 import { Button } from '@chakra-ui/react';
 
+
 function RegisterNewUser() {
   let userData = JSON.parse(localStorage.getItem("dieselUserData")) || [];
   const [name, setNmae] = useState('');
@@ -21,15 +22,18 @@ function RegisterNewUser() {
   const [password, setPassword] = useState('');
   const [rePassword, setRePassword] = useState('');
   // console.log(name);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name === '' && email === '' && password === '' && rePassword === '') {
-      alert('Fill All The Required Fill')
+     alert('Fill All The Required Fill')
+     
     }
     for (let i = 0; i < userData.length; i++) {
       if (userData[i].email === email) {
-        alert("Email Number Is Already Register");
-        return;
+        //alert("Email Number Is Already Register");
+       
+       // return;
       }
 
 
@@ -41,7 +45,7 @@ function RegisterNewUser() {
     }
     if (password !== rePassword) {
       alert('Enter valid Password')
-
+      return  
     }
     else {
       userData.push(data);

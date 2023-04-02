@@ -12,8 +12,11 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { Authcontext } from '../Authcontext/Authcontextprovider';
+import { Navigate } from 'react-router-dom';
+let userData = JSON.parse(localStorage.getItem("dieselUserData")) || [];
 function Copyright(props) {
+ 
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
@@ -29,15 +32,26 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+  const {login , isAuth} = React.useContext(Authcontext);
+  console.log(login )
+  console.log(isAuth )
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    
+     const email = data.get('email');
+     const password = data.get('password');
+     for(let i =0;i<userData.length;i++){
+      if(userData[i].email===email && userData[i].password===password){
+        login(userData[i].name);
+        alert('Login Susscesfull')
+      }
+     }
+   
   };
-
+if(isAuth){
+  return <Navigate to='/'/>
+}
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">

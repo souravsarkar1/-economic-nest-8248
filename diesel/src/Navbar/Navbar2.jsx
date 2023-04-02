@@ -1,5 +1,5 @@
-import { Box, Flex } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Flex , Text } from '@chakra-ui/react'
+import React, { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Image } from '@chakra-ui/react'
 import Dropdoennavcomponent from './Dropdoennavcomponent'
@@ -8,8 +8,10 @@ import questionIcon from '../icons/icons8-question-mark-96.png'
 import seatchIcon from '../icons/icons8-search-96.png'
 import fvtIcon from '../icons/icons8-favorite-96.png'
 import bagIcon from '../icons/icons8-shopping-bag-96.png'
+import { Authcontext } from '../Authcontext/Authcontextprovider'
 
 const Navbar2 = () => {
+  const {token , isAuth , logout} = useContext(Authcontext);
   return (
     <Box
       style={{
@@ -90,14 +92,17 @@ const Navbar2 = () => {
           left='50%'
           transform='translate(-50%)'
           zIndex='1'
-        /></Box>
+        />
+        </Box>
         </Link>
         <Box>
         <Flex zIndex='1'>
+        <Text marginTop={2}>{token}</Text>
+        <Box onClick={logout} p={2}>{isAuth && <button >Logout</button>}</Box>
        <Link to='/login'> <Image src={userIcon} alt='login' w={10} border='1px solid white' /></Link>
        <Link to='/contactus'> <Image src={questionIcon} alt='contactus' w={10} border='1px solid white' /></Link>
-        <Image src={seatchIcon} alt='login' w={10} border='1px solid white' />
-        <Image src={fvtIcon} alt='login' w={10} border='1px solid white' />
+        <Link><Image src={seatchIcon} alt='login' w={10} border='1px solid white' /></Link>
+       <Link> <Image src={fvtIcon} alt='login' w={10} border='1px solid white' /></Link>
         <Link to='/cart'><Image src={bagIcon} alt='login' w={10} border='1px solid white' /></Link>
       </Flex>
         </Box>
