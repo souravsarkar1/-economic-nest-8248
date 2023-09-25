@@ -20,7 +20,7 @@ const KidsShoes = () => {
     const fetchandRendering = (page, filterby) => {
       setLoading(true);
       axios
-        .get(`http://localhost:3004/kidshoes?_page=${page}&_limit=6&_sort=seeling_price&_order=${filterby}`)
+        .get(`https://dieselbackend.onrender.com/kidshoes?_page=${page}&_limit=6&_sort=seeling_price&_order=${filterby}`)
         .then((res) => {
           console.log(res.data);
           setData(res.data);

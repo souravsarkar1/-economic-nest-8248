@@ -7,7 +7,7 @@ const SingleProduct = () => {
   const {id} = useParams();
   const [data,setData] = useState({});
   const fetchandRendering =(id)=>{
-    axios.get(`http://localhost:3004/menjeans/${id}`).then((res)=>{
+    axios.get(`https://dieselbackend.onrender.com/menjeans/${id}`).then((res)=>{
       console.log(res.data);
       setData(res.data)
     })

@@ -7,7 +7,7 @@ const Shoes = () => {
   const {id} = useParams();
   const [data,setData] = useState({});
   const fetchandRendering =(id)=>{
-    axios.get(`http://localhost:3004/menshoes/${id}`).then((res)=>{
+    axios.get(`https://dieselbackend.onrender.com/menshoes/${id}`).then((res)=>{
       console.log(res.data);
       setData(res.data)
     })

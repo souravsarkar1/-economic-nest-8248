@@ -41,6 +41,7 @@ export default function Login() {
     
      const email = data.get('email');
      const password = data.get('password');
+     console.log(email,password);
      for(let i =0;i<userData.length;i++){
       if(userData[i].email===email && userData[i].password===password){
         login(userData[i].name);

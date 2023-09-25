@@ -21,7 +21,7 @@ const WomenJeans = () => {
    const fetchandRendering = (page, filterby) => {
      setLoading(true);
      axios
-       .get(`http://localhost:3004/womenjeans?_page=${page}&_limit=6&_sort=seeling_price&_order=${filterby}`)
+       .get(`https://dieselbackend.onrender.com/womenjeans?_page=${page}&_limit=6&_sort=seeling_price&_order=${filterby}`)
        .then((res) => {
          console.log(res.data);
          setData(res.data);

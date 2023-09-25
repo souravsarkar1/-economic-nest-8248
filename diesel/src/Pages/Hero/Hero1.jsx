@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Hero1 = () => {
-  const backgroundImageUrl = 'https://diesel.gumlet.io/banner/167825364411.webp?compress=true&q=70';
+  const backgroundImageUrl = 'https://cdn.pixelbin.io/v2/black-bread-289bfa/qlNgW4/original/banner/1695034326Mid_Week_Sale_Ads_1336x591_1.webp?compress=true&q=70';
   const styles = {
     backgroundImage: `url(${backgroundImageUrl})`,
     backgroundRepeat: 'no-repeat',

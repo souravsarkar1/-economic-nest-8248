@@ -18,7 +18,7 @@ const KidJeansSingleProduct = () => {
   const {id} = useParams();
   const [data,setData] = useState({});
   const fetchandRendering =(id)=>{
-    axios.get(`http://localhost:3004/kidjeans/${id}`).then((res)=>{
+    axios.get(`https://dieselbackend.onrender.com/kidjeans/${id}`).then((res)=>{
       console.log(res.data);
       setData(res.data)
     })

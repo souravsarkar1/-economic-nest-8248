@@ -18,7 +18,7 @@ const WomenJeansSingle = () => {
   const {id} = useParams();
   const [data,setData] = useState({});
   const fetchandRendering =(id)=>{
-    axios.get(`http://localhost:3004/womenjeans/${id}`).then((res)=>{
+    axios.get(`https://dieselbackend.onrender.com/womenjeans/${id}`).then((res)=>{
       console.log(res.data);
       setData(res.data)
     })

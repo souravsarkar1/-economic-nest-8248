@@ -37,19 +37,20 @@ function Navbar1() {
         <div className="slideshow" style={{ color: 'red', width: '100%' }}>
             <div
                 className="slideshowSlider"
-                style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+                style={{ transform: `translate3d(${-index * 100}%, 0, 0)`, display: 'flex' }}
             >
                 {colors.map((text, index) => (
                     <div
                         className="slide"
                         key={index}
+                        style={{ flex: '1', textAlign: 'center' }}
                     >
                         <Heading as='h3' size='lg'>{text}</Heading>
                     </div>
                 ))}
             </div>
 
-            <div className="slideshowDots">
+            <div className="slideshowDots" style={{ display: 'flex', justifyContent: 'center' }}>
                 {colors.map((_, idx) => (
                     <div
                         key={idx}
@@ -57,10 +58,12 @@ function Navbar1() {
                         onClick={() => {
                             setIndex(idx);
                         }}
+                        style={{ margin: '0 5px', cursor: 'pointer' }}
                     ></div>
                 ))}
             </div>
         </div>
     );
 }
+
 export default Navbar1

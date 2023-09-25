@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom';
     const cartData = JSON.parse(localStorage.getItem("DieselCart")) || [];
     const buyNowData = JSON.parse(localStorage.getItem('DieselBuyNow')) || [];
     const AddToCart =()=>{
-      axios.get(` http://localhost:3004/${link}/${id}`).then((res)=>{
+      axios.get(` https://dieselbackend.onrender.com/${link}/${id}`).then((res)=>{
         console.log(res.data);
 
         for(let i =0;i<cartData.length;i++){
@@ -32,7 +32,7 @@ import { Link } from 'react-router-dom';
       
     }
     const handlBuyNow =()=>{
-      axios.get(`http://localhost:3004/${link}/${id}`).then((res)=>{
+      axios.get(`https://dieselbackend.onrender.com/${link}/${id}`).then((res)=>{
         buyNowData.push(res.data);
         localStorage.setItem('DieselBuyNow' , JSON.stringify(buyNowData));
       })

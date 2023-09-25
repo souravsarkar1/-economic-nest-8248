@@ -47,7 +47,7 @@ export default function ContactUs() {
   return axios(
       {
           method: 'post',
-          url: `http://localhost:3004/userMesage`,
+          url: `https://dieselbackend.onrender.com/userMesage`,
           data: data
       }
   )

@@ -18,7 +18,7 @@ const Men = () => {
   const fetchAndRender = (page, filterBy) => {
     setLoading(true);
     axios
-      .get(`http://localhost:3004/${filterBy}?_page=${page}&_limit=6`)
+      .get(`https://dieselbackend.onrender.com/${filterBy}?_page=${page}&_limit=6`)
       .then((res) => {
         setData(res.data);
         setLoading(false);

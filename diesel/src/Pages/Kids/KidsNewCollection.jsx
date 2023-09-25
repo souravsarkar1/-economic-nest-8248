@@ -20,7 +20,7 @@ const KidsNewCollection = () => {
    const fetchandRendering = (page, filterby) => {
      setLoading(true);
      axios
-       .get(`http://localhost:3004/kidnewcollection?_page=${page}&_limit=6&_sort=seeling_price&_order=${filterby}`)
+       .get(`https://dieselbackend.onrender.com/kidnewcollection?_page=${page}&_limit=6&_sort=seeling_price&_order=${filterby}`)
        .then((res) => {
          console.log(res.data);
          setData(res.data);
